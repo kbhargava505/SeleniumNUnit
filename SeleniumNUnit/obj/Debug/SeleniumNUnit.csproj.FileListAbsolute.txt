@@ -1,9 +1,0 @@
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\bin\Debug\SeleniumNUnit.dll
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\bin\Debug\SeleniumNUnit.pdb
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\bin\Debug\nunit.framework.dll
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\bin\Debug\WebDriver.dll
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\bin\Debug\nunit.framework.xml
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\bin\Debug\WebDriver.xml
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\obj\Debug\SeleniumNUnit.csprojResolveAssemblyReference.cache
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\obj\Debug\SeleniumNUnit.dll
-C:\Users\kanamarb\Documents\SeleniumNUnit\SeleniumNUnit\obj\Debug\SeleniumNUnit.pdb
