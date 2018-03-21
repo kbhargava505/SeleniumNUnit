@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="BrowserConfigurationTests.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="JavaScriptSelenium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KeyboardAndMouseActionsTests.cs" />
   </ItemGroup>
