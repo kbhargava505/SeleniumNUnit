@@ -62,7 +62,42 @@ namespace SeleniumNUnit
             driver = new ChromeDriver(options) {Url = "https://google.com"};
             Assert.IsTrue(driver.Url.ToLower().Contains("google"), "Head Less browser Navigated successfully");
         }
-      
+
+
+        [Test, Description("")]
+        public void Chrome_DeleteAllCookies()
+        {
+            driver = new ChromeDriver();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.MaxValue;
+            driver.Navigate().GoToUrl("http://google.com");
+
+            var cookiesBeforeDelete = driver.Manage().Cookies.AllCookies;
+
+            driver.Manage().Cookies.DeleteAllCookies();
+
+            var cookiesAfterDelete = driver.Manage().Cookies.AllCookies;
+
+            Assert.AreEqual(0, cookiesAfterDelete.Count, "Cookies deleted successfully");
+            Assert.AreNotEqual(cookiesBeforeDelete.Count, cookiesAfterDelete.Count, "Cookies count should not match");
+        }
+
+        [Test]
+        public void Chrome_ReadingCookieValue()
+        {
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("http://google.com");
+
+            driver.Manage().Cookies.DeleteAllCookies();
+
+            driver.Navigate().Refresh();
+
+            Cookie aCookie = driver.Manage().Cookies.GetCookieNamed("NID");
+
+            Console.WriteLine(aCookie.Name);
+            Console.WriteLine(aCookie.Value);
+        }
+
+
         [TearDown]
         public void TearDown()
         {
