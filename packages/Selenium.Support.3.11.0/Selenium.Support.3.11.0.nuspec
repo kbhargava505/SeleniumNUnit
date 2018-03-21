@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Selenium.Support</id>
+    <version>3.11.0</version>
+    <title>WebDriver Support</title>
+    <authors>Selenium Committers</authors>
+    <owners>Selenium Committers</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://www.seleniumhq.org/</projectUrl>
+    <iconUrl>http://seleniumhq.org/images/big-logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Selenium is a set of different software tools each with a different approach
+      to supporting browser automation. These tools are highly flexible, allowing
+      many options for locating and manipulating elements within a browser, and one
+      of its key features is the support for automating multiple browser platforms.
+      This package contains .NET support utilites and classes that users may find
+      useful in using Selenium WebDriver. These support classes are mainly intended
+      to spark ideas of what is possible with Selenium WebDriver, and may not be
+      entirely appropriate for production use.</description>
+    <summary>Provides support classes for Selenium WebDriver</summary>
+    <copyright>Copyright © 2018 Software Freedom Conservancy</copyright>
+    <tags>selenium webdriver support browser automation</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework3.5">
+        <dependency id="Selenium.WebDriver" version="3.11.0" />
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="Selenium.WebDriver" version="3.11.0" />
+      </group>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Selenium.WebDriver" version="3.11.0" />
+      </group>
+      <group targetFramework="Unsupported0.0">
+        <dependency id="Selenium.WebDriver" version="3.11.0" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System.Drawing" targetFramework="" />
+    </frameworkAssemblies>
+  </metadata>
+</package>

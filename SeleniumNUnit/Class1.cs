@@ -20,7 +20,7 @@ namespace SeleniumNUnit
         [TestFixtureSetUp]
         public void fixSetup()
         {
-          
+          //to be written
         }
 
         [SetUp]
@@ -36,8 +36,6 @@ namespace SeleniumNUnit
         [Test]
         public void Test1()
         {
-            
-
             //Launch the ToolsQA Website
             driver.Url = "http://www.demoqa.com";
 
@@ -77,13 +75,21 @@ namespace SeleniumNUnit
             // Printing Page SOurce length on console
             Console.WriteLine("Length of the Page Source is : " + pageSourceLength);
 
+           
+        }
+
+        [TearDown]
+        public void PostExecution()
+        {
             //Closing browser
             driver.Quit();
         }
 
-
-
-
+        [TestFixtureTearDown]
+        public void FixtureTearDown()
+        {
+            //to be written
+        }
        
     }
 }

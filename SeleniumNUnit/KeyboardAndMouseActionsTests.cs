@@ -107,6 +107,15 @@ namespace SeleniumNUnit
             System.Threading.Thread.Sleep(5000); //To see the hover event when executing
         }
 
+        [Test, Description("Drag and drop")]
+        public void Drag_N_Drop()
+        {
+            Driver.Url = "http://demoqa.com/draggable/";
+            IWebElement sourcElement = Driver.FindElement(By.XPath("//div[@id='draggable']"));
+            Actions act = new Actions(Driver);
+            act.DragAndDropToOffset(sourcElement,30, 50).Perform();
+            Thread.Sleep(2000);
+        }
 
         [TearDown, Description("Executes after every test")]
         public void TearDown()
