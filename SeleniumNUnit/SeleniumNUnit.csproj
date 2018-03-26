@@ -55,10 +55,12 @@
     <Compile Include="BrowserConfigurationTests.cs" />
     <Compile Include="BrowserNavigations.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="DifferentDrivers.cs" />
     <Compile Include="JavaScriptSelenium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KeyboardAndMouseActionsTests.cs" />
     <Compile Include="ScreenCapture.cs" />
+    <Compile Include="Waits.cs" />
     <Compile Include="WebElements.cs" />
     <Compile Include="TableInteractions.cs" />
   </ItemGroup>
