@@ -42,7 +42,7 @@ namespace SeleniumNUnit
             check.Until(ExpectedConditions.ElementExists(By.Name("btnK"))); 
             Assert.True(driver.Url.Contains("https://www.google"), "Validate Navigation to google url");
 
-            driver.Navigate().Forward();//Clicks on forward button of browser, navigates as per browseer history
+            driver.Navigate().GoToUrl("https://www.facebook.com/");//Clicks on forward button of browser, navigates as per browseer history
             IWebElement CreateAccount = check.Until(ExpectedConditions.ElementToBeClickable(By.Name("websubmit")));
             Assert.AreEqual(driver.Url, "https://www.facebook.com/", "Validate Navigation to facebook url");
 
@@ -110,9 +110,9 @@ namespace SeleniumNUnit
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.MaxValue;//Implicit wait //wait till the time span max value(2.5hrs)
             Assert.AreEqual(driver.Url, "https://www.facebook.com/", "Validate Navigation to facebook url");
 
-            driver.Navigate().Back(); //Clicks on back button of browser, navigates back to previously visited url (browser history)
+            driver.Navigate().GoToUrl("http://google.com"); //Clicks on back button of browser, navigates back to previously visited url (browser history)
             Thread.Sleep(1000);     //explicit wait
-            Assert.True(driver.Url.Contains("https://www.google"), "Validate Navigation to google url");
+            Assert.True(driver.Url.Contains("http://google.com"), "Validate Navigation to google url");
             
             driver.Url = "http://facebook.com"; //Almost same as Navigate().GoToUrl() method
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
