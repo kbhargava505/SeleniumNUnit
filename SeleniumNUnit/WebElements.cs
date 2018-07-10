@@ -47,7 +47,7 @@ namespace SeleniumNUnit
         }
 
         [Test]
-        public void  DropdownSelection()
+        public void  DropdownSelection1()
         {
 
             Driver.Navigate().GoToUrl("http://demoqa.com/registration/");
