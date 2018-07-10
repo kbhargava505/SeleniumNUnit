@@ -46,6 +46,23 @@ namespace SeleniumNUnit
 
         }
 
+        [Test]
+        public void  DropdownSelection()
+        {
+
+            Driver.Navigate().GoToUrl("http://demoqa.com/registration/");
+            IWebElement Yeardropdown = Driver.FindElement(By.Id("yy_date_8"));
+            SelectElement value = new SelectElement(Yeardropdown);
+            IList<IWebElement> years = value.Options;
+            value.SelectByIndex(1);
+            bool value1 =value.IsMultiple;
+            value.SelectByText("2004");
+            IWebElement valueselected =value.SelectedOption;
+            string valueselected1 =value.SelectedOption.ToString();
+            value.DeselectByText("2004");
+
+        }
+
         [TestFixtureTearDown]
         public void postExecution()
         {
