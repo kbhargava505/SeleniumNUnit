@@ -56,6 +56,7 @@
     <Compile Include="BrowserNavigations.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DifferentDrivers.cs" />
+    <Compile Include="iqadashboard.cs" />
     <Compile Include="JavaScriptSelenium.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="KeyboardAndMouseActionsTests.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Waits.cs" />
     <Compile Include="WebElements.cs" />
     <Compile Include="TableInteractions.cs" />
+    <Compile Include="WebTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
