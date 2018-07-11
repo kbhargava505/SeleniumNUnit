@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,6 +17,8 @@ namespace SeleniumNUnit
     class WebElements
     {
         private IWebDriver Driver;
+
+        public Size size { get; private set; }
 
         [TestFixtureSetUp]
         public void preExec()
@@ -60,6 +63,33 @@ namespace SeleniumNUnit
         }
 
 
+        [Test]
+        public void  DropdownSelection1()
+        {
+
+            Driver.Navigate().GoToUrl("http://demoqa.com/registration/");
+            IWebElement Yeardropdown = Driver.FindElement(By.Id("yy_date_8"));
+            SelectElement value = new SelectElement(Yeardropdown);
+            IList<IWebElement> years = value.Options;
+            value.SelectByIndex(1);
+            bool value1 =value.IsMultiple;
+            value.SelectByText("2004");
+            IWebElement valueselected =value.SelectedOption;
+            string valueselected1 =value.SelectedOption.ToString();
+            value.DeselectByText("2004");
+
+        }
+        [Test]
+        public void Radiobuttons()
+        {
+            Driver.Navigate().GoToUrl("http://demoqa.com/registration/");
+            IWebElement Radiobutton = Driver.FindElement(By.XPath("//input[@value='single']"));
+            System.Drawing.Point value =Radiobutton.Location;
+            var selected=Radiobutton.Selected.ToString();
+             size = Radiobutton.Size;
+            selected= Radiobutton.TagName.ToString();
+            selected=Radiobutton.GetCssValue("//input[@value='single']");
+        }
         [TestFixtureTearDown]
         public void postExecution()
         {
