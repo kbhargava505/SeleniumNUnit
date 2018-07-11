@@ -117,6 +117,9 @@ namespace SeleniumNUnit
             Thread.Sleep(2000);
         }
 
+
+        //add mouse cursor identification tests
+
         [TearDown, Description("Executes after every test")]
         public void TearDown()
         {

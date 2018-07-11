@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -90,6 +91,45 @@ namespace SeleniumNUnit
             selected= Radiobutton.TagName.ToString();
             selected=Radiobutton.GetCssValue("//input[@value='single']");
         }
+
+        [Test]
+        public void SlideSelection()
+        {
+            Driver.Navigate().GoToUrl("http://store.demoqa.com/");
+            IWebElement slideButton = Driver.FindElement(By.XPath("//ul[@id='slide_menu']//a[2]"));
+            slideButton.Click();
+            
+            IWebElement SlidePrice = Driver.FindElement(By.XPath("//p[contains(text(),'$12.00')]"));
+            //IList<IWebElement> SlidePrice = Driver.FindElements(By.XPath("//div[@class='price']/p"));         //using different xpath
+           // Assert.IsTrue(SlidePrice[0].Text.Contains("$12.00"));
+            Assert.IsTrue(SlidePrice.Enabled);
+
+        }
+
+        [Test]
+        public void ImageClick()
+        {
+            Driver.Navigate().GoToUrl("http://store.demoqa.com/");
+           string b=(Driver.FindElement(By.XPath("//ul[@class='group']/li[1]/a[3]")).Text);
+            Driver.FindElement(By.XPath("//ul[@class='group']/li[1]")).Click(); //clicking on the middle of the li
+            Driver.FindElement(By.XPath("//img[@class='product_image']")).Click();
+            string a=(Driver.FindElement(By.XPath("//div[@id='pp_full_res']/img")).GetAttribute("style"));
+            Driver.FindElement(By.XPath("//a[@class='pp_close']")).Click();
+        }
+
+        [Test]
+        public void divListItems()
+        {
+            Driver.Navigate().GoToUrl("http://store.demoqa.com/products-page/product-category/");
+            string a = Driver.FindElement(By.XPath("//h1[@class='entry-title']")).Text;
+            IList<IWebElement> ProductList =Driver.FindElements(By.XPath("//div[@id='default_products_page_container']/div")); // to get all divs
+            IList<IWebElement> Addtocart = Driver.FindElements(By.XPath("//input[@value='Add To Cart']"));
+            Addtocart[2].Click();
+           Assert.IsNotNull(Driver.FindElement(By.XPath("//div[@class='alert addtocart']")).Size);
+
+        }
+
+
         [TestFixtureTearDown]
         public void postExecution()
         {
