@@ -42,7 +42,7 @@ namespace SeleniumNUnit
             check.Until(ExpectedConditions.ElementExists(By.Name("btnK"))); 
             Assert.True(driver.Url.Contains("https://www.google"), "Validate Navigation to google url");
 
-            driver.Navigate().GoToUrl("https://www.facebook.com/");//Clicks on forward button of browser, navigates as per browseer history
+            driver.Navigate().GoToUrl("https://www.facebook.com/");
             IWebElement CreateAccount = check.Until(ExpectedConditions.ElementToBeClickable(By.Name("websubmit")));
             Assert.AreEqual(driver.Url, "https://www.facebook.com/", "Validate Navigation to facebook url");
 
