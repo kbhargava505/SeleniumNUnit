@@ -129,6 +129,16 @@ namespace SeleniumNUnit
 
         }
 
+        [Test]
+        public void PasswordField()
+        {
+            Driver.Navigate().GoToUrl("http://demoqa.com/registration/");
+            Driver.FindElement(By.Id("password_2")).SendKeys("Bhar@9908");
+            Driver.FindElement(By.Id("confirm_password_password_2")).SendKeys("Bhar@9908");
+            Driver.FindElement(By.Id("piereg_passwordStrength")).Click();
+
+        }
+
 
         [TestFixtureTearDown]
         public void postExecution()
