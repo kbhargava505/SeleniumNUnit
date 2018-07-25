@@ -97,6 +97,15 @@ namespace SeleniumNUnit
             Console.WriteLine(aCookie.Value);
         }
 
+        [Test]
+        public void AlertMgmt()
+        {
+            driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://www.redbus.in/?utm_expid=2728620-16");
+            driver.SwitchTo().Alert().Dismiss();
+
+            //under construction
+        }
 
         [TearDown]
         public void TearDown()
