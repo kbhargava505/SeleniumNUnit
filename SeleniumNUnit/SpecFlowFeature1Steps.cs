@@ -16,13 +16,14 @@ namespace SeleniumNUnit
         [Given(@"I have entered (.*) into the calculator")]
         public void GivenIHaveEnteredIntoTheCalculator(int p0)
         {
-            Calc1.FirstNumber = p0;
+            Calc1.add(p0);
         }
         
         [When(@"I press add")]
         public void WhenIPressAdd()
         {
-            result = Calc1.FirstNumber + result;
+
+            result = Calc1.result;
         }
         
         [Then(@"the result should be (.*) on the screen")]
@@ -34,6 +35,11 @@ namespace SeleniumNUnit
 
     public class Calculator
     {
-        public int FirstNumber { get; set; }
+
+        public int result=0;
+        public void add(int i)
+        {
+            result = i + result;
+        }
     }
 }
