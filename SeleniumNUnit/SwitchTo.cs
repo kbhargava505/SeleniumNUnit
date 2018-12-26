@@ -54,6 +54,18 @@ namespace SeleniumNUnit
             driver.SwitchTo().Window(Mainwindow);
             driver.Close();
         }
+        [Test]
+        public void iFrameHandle()
+        {
+            driver.Navigate().GoToUrl("http://demo.guru99.com/test/guru99home/");
+            driver.SwitchTo().Frame("a077aa5e");
+            driver.FindElement(By.XPath("html/body/a/img")).Click();
+            IWebElement ele1 = driver.FindElement(By.XPath("html/body/div/a/img")); //as this is google ad it might change everytime
+            driver.SwitchTo().Frame(ele1);  //switching to the frame by element in it
+            driver.SwitchTo().DefaultContent();
+            //driver.SwitchTo().ParentFrame();   //to come to the parent frame
+            driver.Quit();
 
+        }
     }
 }
