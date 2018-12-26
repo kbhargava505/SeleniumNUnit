@@ -79,6 +79,7 @@
     <Compile Include="SpecFlowFeature1Steps.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="SwitchTo.cs" />
     <Compile Include="Waits.cs" />
     <Compile Include="WebElements.cs" />
     <Compile Include="WebTable.cs" />

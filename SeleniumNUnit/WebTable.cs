@@ -43,6 +43,20 @@ namespace SeleniumNUnit
             Console.WriteLine(Driver.FindElement(By.XPath("//td[preceding-sibling::td[text()='601m'] and following-sibling::td='2']")).Text);//finding text between 601 and 2
             Console.WriteLine(Driver.FindElement(By.XPath("//td[preceding-sibling::td[text()='UAE']]")).Text);//getting values for which UAE is preceding sibling, it will be in circular form
         }
+        [Test]
+        public void ParentAndChildElements()
+        {
+            Driver.Url = "http://toolsqa.com/automation-practice-table/";
+            Console.WriteLine(Driver.FindElement(By.XPath("//parent::tr[td[text()='Dubai']]/following-sibling::tr")).Text);//finding rows below the row which has 'Dubai' 
+
+        }
+        [Test]
+        public void CaseInSensitive()
+        {
+            Driver.Url = "https://stackoverflow.com/questions/2893551/case-insensitive-matching-in-xpath";
+            Driver.FindElement(By.XPath("//span[translate(text(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')='\"empire burlesque\"']")); // to identify elements with respect to case insensitive of the text
+        }
+
         [TestFixtureTearDown]
         public void Teardown()
         {
