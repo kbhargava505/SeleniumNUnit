@@ -12,18 +12,18 @@ using OpenQA.Selenium.Remote;
 
 namespace SeleniumNUnit
 {
-    [TestFixture]
+    //[TestFixture]
     public class Class1
     {
        static  IWebDriver driver;
 
-        [TestFixtureSetUp]
+       // [TestFixtureSetUp]
         public void fixSetup()
         {
           //to be written
         }
-
-        [SetUp]
+        
+        //[SetUp]
         public void TestSetup()
         {
             ChromeOptions options= new ChromeOptions();
@@ -78,14 +78,14 @@ namespace SeleniumNUnit
            
         }
 
-        [TearDown]
+        //[TearDown]
         public void PostExecution()
         {
             //Closing browser
             driver.Quit();
         }
 
-        [TestFixtureTearDown]
+        //[TestFixtureTearDown]
         public void FixtureTearDown()
         {
             //to be written

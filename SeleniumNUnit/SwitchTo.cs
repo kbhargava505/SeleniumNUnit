@@ -12,7 +12,7 @@ using OpenQA.Selenium.Remote;
 
 namespace SeleniumNUnit
 {
-    [TestFixture]
+   [TestFixture]
     class SwitchTo
     {
         IWebDriver driver;

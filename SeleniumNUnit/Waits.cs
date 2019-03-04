@@ -30,9 +30,27 @@ namespace SeleniumNUnit
             driver.Manage().Window.Maximize();
             check = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         }
+        [Test, Description("Implicit wait")]
+        public void ImplicitWaitTest1()
+        {
 
+            //**************** Implicit waits
+            driver.Url = "http://demo.guru99.com/test/guru99home/"; //Almost same as Navigate().GoToUrl() method
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.MaxValue;//Implicit wait //wait till the time span max value(2.5hrs)
+            Assert.AreEqual(driver.Title, "Demo Guru99 Page", "Validate Navigation to facebook url");
+        }
+        [Test, Description("Implicit wait")]
+        public void ImplicitWaitTest2()
+        {
+            driver.Navigate().GoToUrl("http://google.com"); //Clicks on back button of browser, navigates back to previously visited url (browser history)
+            Thread.Sleep(1000);     //explicit wait
+            Assert.True(driver.Url.Contains("http://google.com"), "Validate Navigation to google url");
+
+            driver.Url = "http://facebook.com"; //Almost same as Navigate().GoToUrl() method
+            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+        }
         [Test, Description("using webDriveWait")]
-        public void TypesofWaits()
+        public void ExplicitWaitTest1()
         {
 
             //**************** Explicit or Fluent waits
@@ -45,27 +63,6 @@ namespace SeleniumNUnit
             driver.Navigate().GoToUrl("https://www.facebook.com/");
             IWebElement CreateAccount = check.Until(ExpectedConditions.ElementToBeClickable(By.Name("websubmit")));
             Assert.AreEqual(driver.Url, "https://www.facebook.com/", "Validate Navigation to facebook url");
-
-            //************** Default wait is Webdriver independent
-            //Go to http://toolsqa.wpengine.com/automation-practice-switch-windows/
-            //There is a clock on the page that counts down till 0 from 60 second.
-            //You have to wait for the clock to show text “Buzz Buzz”
-            driver.Navigate().GoToUrl("http://toolsqa.wpengine.com/automation-practice-switch-windows/");
-            IWebElement element1 = driver.FindElement(By.Id("clock"));
-            DefaultWait<IWebElement> wait1 = new DefaultWait<IWebElement>(element1);
-            wait1.Timeout=TimeSpan.FromMinutes(2);
-            wait1.PollingInterval=TimeSpan.FromMilliseconds(250);
-            Func<IWebElement, bool> waiter = new Func<IWebElement, bool>((IWebElement ele) =>
-            {
-                String styleAttrib = element1.Text;
-                if (styleAttrib.Contains("Buzz"))
-                {
-                    return true;
-                }
-                Console.WriteLine("Current time is " + styleAttrib);
-                return false;
-            });
-            wait1.Until(waiter);
 
 
             //Go to http://toolsqa.wpengine.com/automation-practice-switch-windows/
@@ -103,22 +100,36 @@ namespace SeleniumNUnit
            // });
            //// IWebElement targetElement = wait2.Until(waitForElement);            //*****************conversion error is coming we need to look into this
            // Console.WriteLine("Inner HTML of element is " + targetElement.GetAttribute("innerHTML"));
-
-
-            //**************** Implicit waits
-            driver.Url = "http://facebook.com"; //Almost same as Navigate().GoToUrl() method
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.MaxValue;//Implicit wait //wait till the time span max value(2.5hrs)
-            Assert.AreEqual(driver.Url, "https://www.facebook.com/", "Validate Navigation to facebook url");
-
-            driver.Navigate().GoToUrl("http://google.com"); //Clicks on back button of browser, navigates back to previously visited url (browser history)
-            Thread.Sleep(1000);     //explicit wait
-            Assert.True(driver.Url.Contains("http://google.com"), "Validate Navigation to google url");
             
-            driver.Url = "http://facebook.com"; //Almost same as Navigate().GoToUrl() method
-            driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+          
 
         }
+        [Test, Description("Fluent wait")]
+        public void FluentWait1()
+        {
 
+            //************** Default wait is Webdriver independent   Fluent wait
+            //Go to http://toolsqa.wpengine.com/automation-practice-switch-windows/
+            //There is a clock on the page that counts down till 0 from 60 second.
+            //You have to wait for the clock to show text “Buzz Buzz”
+            driver.Navigate().GoToUrl("http://toolsqa.wpengine.com/automation-practice-switch-windows/");
+            IWebElement element1 = driver.FindElement(By.Id("clock"));
+            DefaultWait<IWebElement> wait1 = new DefaultWait<IWebElement>(element1);
+            wait1.Timeout = TimeSpan.FromMinutes(2);
+            wait1.PollingInterval = TimeSpan.FromMilliseconds(250);
+            Func<IWebElement, bool> waiter = new Func<IWebElement, bool>((IWebElement ele) =>
+            {
+                String styleAttrib = element1.Text;
+                if (styleAttrib.Contains("Buzz"))
+                {
+                    return true;
+                }
+                Console.WriteLine("Current time is " + styleAttrib);
+                return false;
+            });
+            wait1.Until(waiter);
+
+        }
 
         [TearDown]
         public void TearDown()

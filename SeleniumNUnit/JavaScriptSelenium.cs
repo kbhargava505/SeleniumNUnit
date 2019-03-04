@@ -71,7 +71,7 @@ namespace SeleniumNUnit
 
             //Vertical scroll down by 600  pixels		
             js.ExecuteScript("window.scrollBy(0,600)");
-
+            js.ExecuteScript("window.scrollBy(0,document.body.scrollHeight)");
             var offsetCurrent = js.ExecuteScript("return window.pageYOffset;");
 
             Assert.AreNotEqual(offsetCurrent, offsetOriginal, "Offset should change, i.e., scroll down by 600 points");
