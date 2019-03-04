@@ -1,4 +1,4 @@
-# SeleniumNUnit
+# SeleniumNUnit Cheat sheet
 
 SeleniumNunitAutomation
 This Project provide a quick working code reference for:
