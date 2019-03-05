@@ -59,6 +59,7 @@
     <Compile Include="BrowserNavigations.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DifferentDrivers.cs" />
+    <Compile Include="ExceptionHandlings.cs" />
     <Compile Include="Guru99HomePage.cs" />
     <Compile Include="Guru99LoginPage.cs" />
     <Compile Include="Guru99SimplePOMTestCase.cs" />

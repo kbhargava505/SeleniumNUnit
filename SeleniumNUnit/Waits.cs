@@ -112,11 +112,12 @@ namespace SeleniumNUnit
             //Go to http://toolsqa.wpengine.com/automation-practice-switch-windows/
             //There is a clock on the page that counts down till 0 from 60 second.
             //You have to wait for the clock to show text “Buzz Buzz”
-            driver.Navigate().GoToUrl("http://toolsqa.wpengine.com/automation-practice-switch-windows/");
+            driver.Navigate().GoToUrl("https://www.toolsqa.com/automation-practice-switch-windows/");
             IWebElement element1 = driver.FindElement(By.Id("clock"));
             DefaultWait<IWebElement> wait1 = new DefaultWait<IWebElement>(element1);
             wait1.Timeout = TimeSpan.FromMinutes(2);
             wait1.PollingInterval = TimeSpan.FromMilliseconds(250);
+            wait1.IgnoreExceptionTypes(typeof(NoSuchElementException));
             Func<IWebElement, bool> waiter = new Func<IWebElement, bool>((IWebElement ele) =>
             {
                 String styleAttrib = element1.Text;
